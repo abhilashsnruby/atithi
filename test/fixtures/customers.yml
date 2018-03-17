@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empname: MyString
+  mobile_no: MyString
+  date_of_joining: 2018-03-17
+  date_of_leaving: 2018-03-17
+  date_of_birth: 2018-03-17
+  marital_status: MyString
+  father_name: MyString
+  spouse_name: MyString
+  gender: MyString
+  present_res_no: 1
+  present_res_name: MyString
+  present_street: MyString
+  present_locality: MyString
+  present_city: MyString
+  present_state_id: 1
+  perm_res_no: 1
+  perm_res_name: MyString
+  perm_street: MyString
+
+two:
+  empname: MyString
+  mobile_no: MyString
+  date_of_joining: 2018-03-17
+  date_of_leaving: 2018-03-17
+  date_of_birth: 2018-03-17
+  marital_status: MyString
+  father_name: MyString
+  spouse_name: MyString
+  gender: MyString
+  present_res_no: 1
+  present_res_name: MyString
+  present_street: MyString
+  present_locality: MyString
+  present_city: MyString
+  present_state_id: 1
+  perm_res_no: 1
+  perm_res_name: MyString
+  perm_street: MyString

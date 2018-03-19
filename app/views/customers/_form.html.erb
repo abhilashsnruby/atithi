@@ -1,0 +1,33 @@
+<%= form_with(model: @customer, remote: true,:html=>{:id=>"state_forms",:class => "form-horizontal nomargin"}) do |form| %>
+  <%= render 'error' %>
+  
+  <div class="field">
+    <%= form.label :empname %>
+    <%= form.text_field :empname, id: :customer_empname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_joining %>
+    <%= form.date_field :date_of_joining, id: :customer_date_of_joining %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_birth %>
+    <%= form.date_field :date_of_birth, id: :customer_date_of_birth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marital_status %>
+    <%= form.text_field :marital_status, id: :customer_marital_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :present_res_name %>
+    <%= form.text_field :present_res_name, id: :customer_present_res_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

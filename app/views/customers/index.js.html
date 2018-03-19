@@ -1,0 +1,1 @@
+$("#customer_info").html('#{ escape_javascript(render "index") }');

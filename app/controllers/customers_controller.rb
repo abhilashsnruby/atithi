@@ -5,13 +5,13 @@ class CustomersController < ApplicationController
     @customers = Customer.order(empname: :desc)
     respond_to do |format|
       format.html # index.html.erb 
-      format.js
     end
   end
 
   def new
     @customer = Customer.new
     respond_to do |format|
+      format.html
       format.js
     end
   end
@@ -60,5 +60,4 @@ class CustomersController < ApplicationController
   def customer_data
     @customer = Customer.find(params[:id])
   end
-
 end

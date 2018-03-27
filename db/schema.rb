@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317071109) do
+ActiveRecord::Schema.define(version: 20180324070340) do
 
   create_table "customers", force: :cascade do |t|
     t.string "empname"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180317071109) do
     t.integer "perm_res_no"
     t.string "perm_res_name"
     t.string "perm_street"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "room_no"
+    t.integer "capacity"
+    t.string "type_of_sharing"
+    t.integer "floor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

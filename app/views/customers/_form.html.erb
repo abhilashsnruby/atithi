@@ -1,33 +1,50 @@
-<%= form_with(model: @customer, remote: true,:html=>{:id=>"state_forms",:class => "form-horizontal nomargin"}) do |form| %>
-  <%= render 'error' %>
-  
-  <div class="field">
-    <%= form.label :empname %>
-    <%= form.text_field :empname, id: :customer_empname %>
-  </div>
+<script>
+  function validate_change(){
+    customer_name = $('#customer_empname').val();
+    if (customer_name == "");{
+      alert('Please enter employee name');
+      return false;
+    }
+</script>
 
-  <div class="field">
-    <%= form.label :date_of_joining %>
-    <%= form.date_field :date_of_joining, id: :customer_date_of_joining %>
-  </div>
 
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_field :date_of_birth, id: :customer_date_of_birth %>
-  </div>
+<div class="container-fluid">
+  <center>
+    <h3>Enter Customer Information</h3>
+  </center>
+  <br/>
 
-  <div class="field">
-    <%= form.label :marital_status %>
-    <%= form.text_field :marital_status, id: :customer_marital_status %>
-  </div>
+  <%= form_with(model: @customer, remote: true,:html=>{:id=>"customer_forms",:onsubmit=>"validate_change();",:class => "form-horizontal nomargin"}) do |form| %>
+    <%= render 'error' %>
+    
+    <div class="form-group">
+      <%= form.label :empname %>
+      <%= form.text_field :empname, class:"form-control", id: :customer_empname, size:'4' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :present_res_name %>
-    <%= form.text_field :present_res_name, id: :customer_present_res_name %>
-  </div>
+    <div class="form-group">
+      <%= form.label :marital_status %>
+      <%= form.text_field :marital_status,class:"form-control", id: :customer_marital_status %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-group">
+      <%= form.label :present_res_name %>
+      <%= form.text_field :present_res_name, class:"form-control", id: :customer_present_res_name %>
+    </div>
 
-<% end %>
+    <div class="form-group">
+      <%= form.label :date_of_joining %>
+      <%= form.date_field :date_of_joining, class:"form-control", id: :customer_date_of_joining %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :date_of_birth %>
+      <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit class:"btn btn-success"%>
+    </div>
+
+  <% end %>
+</div>

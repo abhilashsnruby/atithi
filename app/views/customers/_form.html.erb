@@ -1,10 +1,15 @@
-<script>
+<script type="text/javascript">
   function validate_change(){
     customer_name = $('#customer_empname').val();
-    if (customer_name == "");{
-      alert('Please enter employee name');
+    customer_marital_status = $('#customer_marital_status').val();
+    if (customer_name == ""){
+      alert('Please enter customer name');
+      return false;
+    }else if (customer_marital_status == ""){
+      alert('Please enter customer marital status');
       return false;
     }
+  }
 </script>
 
 
@@ -14,11 +19,11 @@
   </center>
   <br/>
 
-  <%= form_with(model: @customer, remote: true,:html=>{:id=>"customer_forms",:onsubmit=>"validate_change();",:class => "form-horizontal nomargin"}) do |form| %>
+  <%= form_with(model: @customer, remote: true,:html=>{:id=>"customer_forms",:class => "form-horizontal nomargin"}) do |form| %>
     <%= render 'error' %>
     
     <div class="form-group">
-      <%= form.label :empname %>
+      <%= form.label :customer_name %>
       <%= form.text_field :empname, class:"form-control", id: :customer_empname, size:'4' %>
     </div>
 
@@ -32,18 +37,22 @@
       <%= form.text_field :present_res_name, class:"form-control", id: :customer_present_res_name %>
     </div>
 
-    <div class="form-group">
-      <%= form.label :date_of_joining %>
-      <%= form.date_field :date_of_joining, class:"form-control", id: :customer_date_of_joining %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :date_of_joining %>
+        <%= form.date_field :date_of_joining, class:"form-control", id: :customer_date_of_joining %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :date_of_birth %>
+        <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
+      </div>
     </div>
 
     <div class="form-group">
-      <%= form.label :date_of_birth %>
-      <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
-    </div>
-
-    <div class="form-group">
-      <%= form.submit class:"btn btn-success"%>
+      <%= form.submit onclick:"return validate_change();", class:"btn btn-success"%>
     </div>
 
   <% end %>

@@ -1,0 +1,45 @@
+<script type="text/javascript">
+  function validate_change(){
+    capacity = $('#capacity').val();
+    type_of_sharing = $('#type_of_sharing').val();
+    if (capacity == ""){
+      alert('Please enter customer name');
+      return false;
+    }else if (type_of_sharing == ""){
+      alert('Please enter customer marital status');
+      return false;
+    }
+  }
+</script>
+
+
+<div class="container-fluid">
+  <center>
+    <h3>Enter Room Information</h3>
+  </center>
+  <br/>
+
+  <%= form_with(model: @room, remote: true,:html=>{:id=>"room_forms",:class => "form-horizontal nomargin"}) do |form| %>
+    <%= render 'error' %>
+    
+    <div class="form-group">
+      <%= form.label :room_no %>
+      <%= form.text_field :room_no, class:"form-control", id: :room_no, size:'4' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :capacity %>
+      <%= form.text_field :capacity,class:"form-control", id: :capacity %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :type_of_sharing %>
+      <%= form.text_field :type_of_sharing, class:"form-control", id: :type_of_sharing %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit onclick:"return validate_change();", class:"btn btn-success"%>
+    </div>
+
+  <% end %>
+</div>

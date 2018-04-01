@@ -1,0 +1,36 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <% if @rooms.present? %>
+    <div id = 'customer_info'>
+      <h> Room Details </h>
+      <table border="1">
+        <thead>
+          <tr>
+            <td> Room Number </td> :capacity, :type_of_sharing, :floor_id
+            <td> Capacity </td>
+            <td> Type of Sharing </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td> <%= customer.room_no %> </td>
+              <td> <%= customer.capacity %> </td>
+              <td> <%= customer.type_of_sharing %> </td>
+              <td><%= link_to 'Show', room %></td>
+              <td><%= link_to 'Edit', edit_room_path(room) %></td>
+              <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>  
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <h3> Rooms Not Present</h3>
+  <% end %>
+  <br>
+
+  <%= link_to 'New Room', new_room_path %>
+</div>

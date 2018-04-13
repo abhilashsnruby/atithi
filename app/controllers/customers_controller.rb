@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customers = Customer.new(permit_customer)
+    @customers = Customer.new(customer_params)
     if @customers.save
       redirect_to(customers_path, notice: 'Customer was successfully saved')
     else
@@ -53,7 +53,7 @@ class CustomersController < ApplicationController
 
   private
 
-  def permit_customer
+  def customer_params
     params.require(:customer).permit(:empname, :date_of_joining, :date_of_birth, :marital_status, :present_res_name, :authenticity_token)
   end
 

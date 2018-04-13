@@ -13,47 +13,55 @@
 </script>
 
 
-<div class="container-fluid">
-  <center>
-    <h3>Enter Customer Information</h3>
-  </center>
+<div class="container-fluid centered">
+ <!--  <center> -->
+    <h3 style="color:red">Enter Customer Information</h3>
+  <!-- </center> -->
   <br/>
 
-  <%= form_with(model: @customer, remote: true,:html=>{:id=>"customer_forms",:class => "form-horizontal nomargin"}) do |form| %>
-    <%= render 'error' %>
-    
-    <div class="form-group">
-      <%= form.label :customer_name %>
-      <%= form.text_field :empname, class:"form-control", id: :customer_empname, size:'4' %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :marital_status %>
-      <%= form.text_field :marital_status,class:"form-control", id: :customer_marital_status %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :present_res_name %>
-      <%= form.text_field :present_res_name, class:"form-control", id: :customer_present_res_name %>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <%= form.label :date_of_joining %>
-        <%= form.date_field :date_of_joining, class:"form-control", id: :customer_date_of_joining %>
+  <div align'center'>
+    <%= form_with(model: @customer, remote: true,:html=>{:id=>"customer_forms",:class => "form-horizontal nomargin"}) do |form| %>
+      <%= render 'error' %>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.label :customer_name %>
+          <%= form.text_field :empname, class:"form-control", id: :customer_empname, size:'4' %>
+        </div>
       </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <%= form.label :date_of_birth %>
-        <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.label :marital_status %>
+          <%= form.text_field :marital_status,class:"form-control", id: :customer_marital_status %>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <%= form.submit onclick:"return validate_change();", class:"btn btn-success"%>
-    </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.label :present_res_name %>
+          <%= form.text_field :present_res_name, class:"form-control", id: :customer_present_res_name %>
+        </div>
+      </div>
 
-  <% end %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.label :date_of_joining %>
+          <%= form.date_field :date_of_joining, class:"form-control", id: :customer_date_of_joining %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.label :date_of_birth %>
+          <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit onclick:"return validate_change();", class:"btn btn-success"%>
+      </div>
+
+    <% end %>
+  </div>
 </div>

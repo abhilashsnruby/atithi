@@ -3,29 +3,27 @@
 
   <% if @customers.present? %>
     <div id = 'customer_info'>
-      <h> Customer Details </h>
-      <table border="1">
+      <center> <h3 style = 'color:red'> Customer Details </h3> </center>
+      <table class="table">
         <thead>
           <tr>
-            <td> Customer Name </td>
-            <td> Date of Joining </td>
-            <td> Date of Birth </td>
-            <td> Marital Status </td>
-            <td> Present Residence Name </td>
+            <th scope="col"> Customer Name </th>
+            <th scope="col"> Date of Joining </th>
+            <th scope="col"> Date of Birth </th>
+            <th scope="col"> Marital Status </th>
+            <th scope="col"> Present Residence Name </th>
           </tr>
         </thead>
 
         <tbody>
           <% @customers.each do |customer| %>
-            <tr>
+            <tr scope="row">
               <td> <%= customer.empname %> </td>
               <td> <%= customer.date_of_joining %> </td>
               <td> <%= customer.date_of_birth %> </td>
               <td> <%= customer.marital_status %> </td>
               <td> <%= customer.present_res_name %> </td>
-              <td><%= link_to 'Show', customer %></td>
-              <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-              <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', customer, class: "glyphicon glyphicon-indent-right", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>  
           <% end %>
         </tbody>
@@ -36,5 +34,5 @@
   <% end %>
   <br>
 
-  <%= link_to 'New Customer', new_customer_path %>
+  <%= link_to 'New Customer', new_customer_path, class:"btn btn-success" %>
 </div>

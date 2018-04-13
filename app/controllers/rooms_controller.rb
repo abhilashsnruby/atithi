@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
 
   def create
     @rooms = Room.new(permit_room)
+    # @rooms = Room.assign_floor_to_room permit_room, @rooms
     if @rooms.save
       redirect_to(rooms_path, notice: 'Room was successfully saved')
     else

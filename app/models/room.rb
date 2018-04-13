@@ -3,4 +3,7 @@ class Room < ApplicationRecord
   
   has_many :customers
   belongs_to :floor
+
+  # def self.assign_floor_to_room parmas, room
+  # end
 end

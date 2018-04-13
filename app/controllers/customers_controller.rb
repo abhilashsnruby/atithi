@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
   private
 
   def permit_customer
-    params.require(:customer).permit(:empname, :date_of_joining, :date_of_birth, :marital_status, :present_res_name)
+    params.require(:customer).permit(:empname, :date_of_joining, :date_of_birth, :marital_status, :present_res_name, :authenticity_token)
   end
 
   def customer_data

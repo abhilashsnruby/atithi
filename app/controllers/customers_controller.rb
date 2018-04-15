@@ -17,8 +17,8 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customers = Customer.new(customer_params)
-    if @customers.save
+    @customer = Customer.new(customer_params)
+    if @customer.save
       redirect_to(customers_path, notice: 'Customer was successfully saved')
     else
       render 'new'

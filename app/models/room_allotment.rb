@@ -1,0 +1,2 @@
+class RoomAllotment < ApplicationRecord
+end

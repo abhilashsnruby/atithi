@@ -3,24 +3,22 @@
 
   <% if @rooms.present? %>
     <div id = 'customer_info'>
-      <h> Room Details </h>
-      <table border="1">
+      <center><h3 style="color:red"> Room Details </h3></center>
+      <table class="table">
         <thead>
           <tr>
-            <td> Room Number </td> :capacity, :type_of_sharing, :floor_id
-            <td> Capacity </td>
-            <td> Type of Sharing </td>
+            <td scope="col"> Room Number </td>
+            <td scope="col"> Capacity </td>
+            <td scope="col"> Type of Sharing </td>
           </tr>
         </thead>
 
         <tbody>
-          <% @customers.each do |customer| %>
-            <tr>
-              <td> <%= customer.room_no %> </td>
-              <td> <%= customer.capacity %> </td>
-              <td> <%= customer.type_of_sharing %> </td>
-              <td><%= link_to 'Show', room %></td>
-              <td><%= link_to 'Edit', edit_room_path(room) %></td>
+          <% @rooms.each do |room| %>
+            <tr scope="row">
+              <td> <%= room.room_no %> </td>
+              <td> <%= room.capacity %> </td>
+              <td> <%= room.type_of_sharing %> </td>
               <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>  
           <% end %>
@@ -32,5 +30,5 @@
   <% end %>
   <br>
 
-  <%= link_to 'New Room', new_room_path %>
+  <%= link_to 'New Room', new_room_path, class:"btn btn-success" %>
 </div>

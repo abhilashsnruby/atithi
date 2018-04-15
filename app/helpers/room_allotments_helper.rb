@@ -1,0 +1,2 @@
+module RoomAllotmentsHelper
+end

@@ -25,6 +25,11 @@ class CustomersController < ApplicationController
     end
   end
 
+  def allot_room
+    @customers = Customer.pluck :empname
+    @rooms = Room.pluck :room_no
+  end
+
   # def update
   #   @success = @customer.update_attributes(params[:])
 

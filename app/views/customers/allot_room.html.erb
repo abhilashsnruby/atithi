@@ -1,0 +1,37 @@
+<div class="container-fluid col-md-6">
+  <center>
+    <h3 style="color:red">Enter Customer Information</h3>
+  </center>
+ <br/>
+
+  <div align'center'>
+    <%= form_tag allot_room_customers_path, :method => :get, target: "_blank", :onsubmit=>"return validate_room()", :class => "form-horizontal two-column nomargin", id: "allot_room"  do %>
+
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <div class = "emp_rate-col">
+            <font color="red">*</font> <span>Customer Name</span>
+            <%= select_tag "customers", options_for_select(@customers,'customer_name'),:prompt => "Select customers"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <div class ="emp_rate-col2">
+            <font color="red">*</font> <span>Room</span>
+            <%= select_tag "rooms", options_for_select(@rooms),:prompt => "Select rooms"%>
+          </div>
+        </div>
+      </div>
+
+      <center>
+        <div class="form-group">
+          <%= submit_tag "Allot Room", id: "allot_room", class:"btn btn-success"%>
+        </div>
+      </center>
+
+    <% end %>
+  </div>
+</div>

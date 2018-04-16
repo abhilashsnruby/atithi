@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   resources :employees
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :customers
+  resources :customers,  except: [:show] do
+    get 'allot_room', on: :collection
+  end
 
   resources :rooms
+
+  resources :room_allotments
+
 end

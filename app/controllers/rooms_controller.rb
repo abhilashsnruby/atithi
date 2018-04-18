@@ -46,6 +46,13 @@ class RoomsController < ApplicationController
     end
   end
 
+  def find_by_filter
+    @floors = Floor.pluck(:floor_name)
+    @rooms = Room.pluck(:room_no)
+    @type_of_sharing = Room.pluck(:type_of_sharing)
+    @rooms_by_floor = Room.find_room_details(@floors, @rooms, @type_of_sharing)
+  end
+
   def show
   end
 

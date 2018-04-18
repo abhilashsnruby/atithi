@@ -7,4 +7,8 @@ class Room < ApplicationRecord
 
   # def self.assign_floor_to_room parmas, room
   # end
+
+  def self.find_room_details floors, rooms, type_of_sharing
+    
+  end
 end

@@ -7,32 +7,44 @@
   <div align'center'>
     <%= form_tag find_by_filter_rooms_path, :method => :get, target: "_blank", :onsubmit=>"return validate_room()", :class => "form-horizontal two-column nomargin", id: "allot_room"  do %>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <div class = "emp_rate-col">
-            <font color="red">*</font> <span>Floors</span>
-            <%= select_tag "customers", options_for_select(@floors),:prompt => "Select floors"%>
+    <table>
+      <tr>
+        <td align="left">
+          <div class="dropdown">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <font color="red">*</font> <span>Floors</span>
+                <%= select_tag "customers", options_for_select(@floors),:prompt => "Select floors"%>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </td>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <div class ="emp_rate-col2">
-            <font color="red">*</font> <span>Attached bathroom</span>
-            <%= select_tag "rooms", options_for_select(@rooms),:prompt => "Select bathroom"%>
+        <td align='center'>
+          <div class='dropdown'>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <font color="red">*</font> <span>Bathroom</span>
+                  <%= select_tag "rooms", options_for_select(@rooms),:prompt => "Select bathroom"%>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </td>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <div class ="emp_rate-col2">
-            <font color="red">*</font> <span>Type of Sharing</span>
-            <%= select_tag "rooms", options_for_select(@type_of_sharing),:prompt => "Select type of sharing"%>
+        <td align="right">
+          <div class ='dropdown'>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                  <font color="red">*</font> <span>Sharing Type</span>
+                  <%= select_tag "type_of_sharing", options_for_select(@type_of_sharing),:prompt => "Select sharing"%>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </td>
+      </tr>
+    </table>
+
+    <br/>
 
       <center>
         <div class="form-group">

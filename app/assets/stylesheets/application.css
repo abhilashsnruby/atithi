@@ -16,3 +16,7 @@
  .selectfield2 {  border:1px solid #e7e7e7;width: 240px;height: 30px;overflow: hidden;padding:5px 20px 5px 5px; background: url(../images/ic_selectfield_arrow.png) no-repeat right  #ffffff;border: 1px solid #ccc; -webkit-appearance: none;}
  .emp_rate-col{ width:50%; float:left}
  .emp_rate-col2{ width:50%; float:left;}
+
+ .dropdown {
+  display: inline-block;
+}

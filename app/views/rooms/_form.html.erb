@@ -15,7 +15,7 @@
 
 <div class="container-fluid">
   <center>
-    <h3>Enter Room Information</h3>
+    <h3 style="color:red">Enter Room Information</h3>
   </center>
   <br/>
 
@@ -40,6 +40,20 @@
     <div class="form-group">
       <%= form.label :floor %>
       <%= form.select(:floor_id, floors_for_select, :prompt => 'Select', class:"form-control") %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :status %>
+      </br>
+      occupied <%= radio_button_tag "status", "true"%>
+      not occupied <%= radio_button_tag "status", "false" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :bathroom %>
+      </br>
+      Attached <%= radio_button_tag "attached_bathroom", "true"%>
+      Not Attached <%= radio_button_tag "attached_bathroom", "false" %>
     </div>
 
     <div class="form-group">

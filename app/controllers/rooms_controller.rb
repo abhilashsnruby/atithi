@@ -50,8 +50,12 @@ class RoomsController < ApplicationController
     @floors = Floor.pluck(:floor_name)
     @rooms = Room.pluck(:room_no)
     @type_of_sharing = Room.pluck(:type_of_sharing)
-    @rooms_by_floor = Room.find_room_details(@floors, @rooms, @type_of_sharing)
+    @rooms_by_floor = Room.find_room_details(params[:customers], params[:rooms], params[:type_of_sharing])
   end
+
+  # def room_details
+  #   debugger
+  # end
 
   def show
   end

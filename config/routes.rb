@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :rooms, except: [:show] do
     get 'find_by_filter', on: :collection
+    get 'room_details', on: :collection
   end
 
   resources :room_allotments

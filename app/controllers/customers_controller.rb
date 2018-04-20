@@ -18,10 +18,14 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer.save
-      redirect_to(customers_path, notice: 'Customer was successfully saved')
-    else
-      render 'new'
+    respond_to do |format|
+      if @customer.save
+        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.js
+         # { redirect_to(customers_path, notice: 'Customer was successfully saved') }
+      else
+        format.html { render 'new' }
+      end
     end
   end
 
@@ -59,7 +63,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:empname, :date_of_joining, :date_of_birth, :marital_status, :present_res_name, :authenticity_token)
+    params.require(:customer).permit(:empname, :date_of_joining, :date_of_birth, :marital_status, :present_res_name, :mobile_no, :email, :perm_res_name, :room_id, :authenticity_token)
   end
 
   def customer_data

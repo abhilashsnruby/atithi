@@ -1,17 +1,19 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
+<div id = 'customer_info'>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-  <% if @customers.present? %>
-    <div id = 'customer_info'>
+    <% if @customers.present? %>
       <center> <h3 style = 'color:red'> Customer Details </h3> </center>
       <table class="table">
         <thead>
           <tr>
             <th scope="col"> Customer Name </th>
+            <th scope="col"> Mobile No </th>
+            <th scope="col"> Email </th>
+            <th scope="col"> Permanent Residence Name </th> 
             <th scope="col"> Date of Joining </th>
             <th scope="col"> Date of Birth </th>
-            <th scope="col"> Marital Status </th>
-            <th scope="col"> Present Residence Name </th>
+            <th scope="col"> Room No </th>
           </tr>
         </thead>
 
@@ -19,20 +21,22 @@
           <% @customers.each do |customer| %>
             <tr scope="row">
               <td> <%= customer.empname %> </td>
+              <td> <%= customer.mobile_no %> </td>
+              <td> <%= customer.email %> </td>
+              <td> <%= customer.perm_res_name %> </td>
               <td> <%= customer.date_of_joining %> </td>
               <td> <%= customer.date_of_birth %> </td>
-              <td> <%= customer.marital_status %> </td>
-              <td> <%= customer.present_res_name %> </td>
+              <td> <%= customer.room.room_no %> </td>
               <td><%= link_to 'Destroy', customer, class: "glyphicon glyphicon-indent-right", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>  
           <% end %>
         </tbody>
       </table>
-    </div>
-  <% else %>
-    <h3> Customers Not Present</h3>
-  <% end %>
-  <br>
+    <% else %>
+      <h3> Customers Not Present</h3>
+    <% end %>
+    <br>
 
-  <%= link_to 'New Customer', new_customer_path, class:"btn btn-success" %>
+    <%= link_to 'New Customer', new_customer_path, class:"btn btn-success" %>
+  </div>
 </div>

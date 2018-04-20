@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="form-row">
+        <div class="form-row">
         <div class="form-group col-md-12">
           <font color="red">*</font> <%= form.label :email %>
           <%= form.text_field :email, class:"form-control", id: :email_id %>
@@ -69,6 +69,11 @@
           <%= form.label :date_of_birth %>
           <%= form.date_field :date_of_birth, class:"form-control", id: :customer_date_of_birth %>
         </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :room %>
+        <%= form.select(:room_id, rooms_for_select, :prompt => 'Select', class:"form-control") %>
       </div>
 
       <center>

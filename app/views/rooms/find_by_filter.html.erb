@@ -14,7 +14,7 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <font color="red">*</font> <span>Floors</span>
-                <%= select_tag "customers", options_for_select(@floors),:prompt => "Select floors"%>
+                <%= select_tag "floors", options_for_select(@floors),:prompt => "Select floors"%>
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <font color="red">*</font> <span>Bathroom</span>
-                  <%= select_tag "rooms", options_for_select(@rooms),:prompt => "Select bathroom"%>
+                  <%= select_tag "rooms", options_for_select(@attached_bathroom),:prompt => "Select bathroom"%>
               </div>
             </div>
           </div>
@@ -54,4 +54,8 @@
 
     <% end %>
   </div>
+</div>
+
+<div id= 'room_by_floor'>
+  <%= render 'room_details' %>
 </div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <% if @room_by_floor.present? %>
+    <center> <h3 style = 'color:red'> Room by Floor Details </h3> </center>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Room No </th>
+          <th scope="col"> Capacity </th>
+          <th scope="col"> Type of sharing </th>
+          <th scope="col"> Floor </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @room_by_floor.each do |room| %>
+          <tr scope="row">
+            <td> <%= room.room_no %> </td>
+            <td> <%= room.capacity %> </td>
+            <td> <%= room.type_of_sharing %> </td>
+            <td> <%= room.floor_id %> </td>
+            <td><%= link_to 'Destroy', customer, class: "glyphicon glyphicon-indent-right", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h3> Rooms Not Present</h3>
+  <% end %>
+  <br>
+</div>

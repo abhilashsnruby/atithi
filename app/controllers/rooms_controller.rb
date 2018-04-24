@@ -47,10 +47,16 @@ class RoomsController < ApplicationController
   end
 
   def find_by_filter
+    @attached_bathroom = ['true','false']
     @floors = Floor.pluck(:floor_name)
     @rooms = Room.pluck(:room_no)
     @type_of_sharing = Room.pluck(:type_of_sharing)
-    @rooms_by_floor = Room.find_room_details(params[:customers], params[:rooms], params[:type_of_sharing])
+    @rooms_by_floor = Room.find_room_details(params[:floors], params[:rooms], params[:type_of_sharing])
+    if @rooms_by_floor.present?
+      render partial: 'room_details', room_by_floor: @rooms_by_floor
+    else
+      render 'find_by_filter'
+    end
   end
 
   # def room_details
